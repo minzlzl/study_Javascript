@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function hello(names, age){
+      console.log("Hello my name is " + names + ", I'm " + age);
+    };
+    hello("coco", 22);
+    hello("nini", 10);
+
+
+
+    function plus(firstNum, secondNum){
+      console.log(firstNum + secondNum);
+    };
+    plus(8, 60);
+
+    function divide(a, b){
+      console.log(a /b);
+    };
+    divide(20, 5);
+
+
+
+    const player = {
+      name:"nico",
+      sayHello:function(personName){
+        console.log("hello " + personName);
+      }
+    };
+    player.sayHello("nini");
+    player.sayHello("coco");
+
+
+
+    const calculator = {
+      plus:function(a, b){
+        alert(a + b);
+      },
+      minus:function(a, b){
+        alert(a - b);
+      },
+      multiply:function(a, b){
+        alert(a * b);
+      },
+      divide:function(a, b){
+        alert(a / b);
+      }
+    };
+    calculator.plus(10, 20);
+    calculator.minus(10, 20);
+    calculator.multiply(10, 20);
+    calculator.divide(10, 20);
+  </script>
+</body>
+</html>
