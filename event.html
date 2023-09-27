@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="hello">
+    <h1>Click me!</h1>
+  </div>
+  <script>
+    const title = document.querySelector('.hello h1');   
+
+    function titleClick(){
+      // console.log("title was clicked!");
+      title.style = "color:blue";
+    };
+    function titleMouseEnter(){
+      // console.log("스르륵");
+      title.innerText = "마우스를 올렸더니 텍스트가 변하죠";
+    };
+    function titleMouseLeave(){
+      title.innerText = "마우스가 떠났습니다.";
+    };
+    title.addEventListener("click",titleClick);
+    title.addEventListener("mouseenter",titleMouseEnter);
+    title.addEventListener("mouseleave",titleMouseLeave);
+  </script>
+</body>
+</html>

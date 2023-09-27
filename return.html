@@ -7,12 +7,14 @@
 </head>
 <body>
   <script>
-    const ages = 96;
+    const age = 27;
     function krAge(foreignrAge){
-      return foreignrAge + 2;
+      console.log("hello");
+      return foreignrAge + 2; //return 하는 순간, function 종료됨
+      console.log("bye"); //return 때문에 출력안됨
     }
-    const krAges = krAge(ages);
-    console.log(krAges);
+    const krAgeNum = krAge(age);
+    console.log(krAgeNum);
   </script>
 </body>
 </html>
