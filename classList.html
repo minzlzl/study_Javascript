@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="hello">
+    <h1 class="basic">Click me!</h1>
+  </div>
+  <style>
+    .hello h1{color:rgb(93, 184, 236);}
+    .hello h1.active{
+      color:orange;
+      transition: .5s ease-in-out;
+    }
+  </style>
+  <script>
+    const title = document.querySelector(".hello h1");
+
+    function titleClick(){
+      // if(title.classList.contains("active")){
+      //   title.classList.remove("active");
+      // }else{
+      //   title.classList.add("active");
+      // }
+      title.classList.toggle("active");
+    };
+    title.addEventListener("click",titleClick);
+  </script>
+</body>
+</html>

@@ -26,6 +26,15 @@
     title.addEventListener("click",titleClick);
     title.addEventListener("mouseenter",titleMouseEnter);
     title.addEventListener("mouseleave",titleMouseLeave);
+
+    function windowResize(){
+      document.body.style = "background:orange";
+    }
+    function windowCopy(){
+      alert("카피");
+    };
+    window.addEventListener("resize",windowResize);
+    window.addEventListener("copy",windowCopy);// ctrl+c
   </script>
 </body>
 </html>
