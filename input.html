@@ -6,8 +6,48 @@
   <title>Document</title>
 </head>
 <body>
+  <form class="login-form hidden">
+    <input required maxlength="15" type="text" placeholder="이름이 뭐니?">
+    <input type="submit" value="Login"/>
+  </form>
+  <h1 class="hidden"></h1>
+  <!-- <a href="https://www.naver.com">Go naver</a> -->
+  <style>
+    .hidden{display: none;}
+  </style>
   <script>
+    const loginForm = document.querySelector(".login-form");
+    const loginInput = document.querySelector(".login-form input"),
+          elH1 = document.querySelector("h1");
+
+    function submitLoginForm(event){
+      event.preventDefault();
+      console.log(event);
+      loginForm.classList.add("hidden");
+      const userName = loginInput.value;
+      localStorage.setItem("username",userName)
+      elH1.innerText = `Hello~ ${userName}`;
+      elH1.classList.remove("hidden");
+    };
     
+
+    const localStorageUserName = localStorage.getItem("username");
+    
+    if(localStorageUserName === null){
+      loginForm.classList.remove("hidden");
+      loginForm.addEventListener("submit",submitLoginForm);
+    }else{
+      elH1.innerText = `Hello~ ${localStorageUserName}`;
+      elH1.classList.remove("hidden");
+    }
+
+
+    // const link = document.querySelector("a");
+
+    // function clickA(event){
+    //   event.preventDefault();   
+    // };
+    // link.addEventListener("click",clickA);
   </script>
 </body>
 </html>
