@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form class="todo_form">
+    <input type="text" placeholder="입력바람" required/>
+  </form>
+  <ul class="todo_list"></ul>
+
+  <script>
+    const elForm = document.querySelector('.todo_form'),
+            elUl = document.querySelector('.todo_list'),
+            elInput = document.querySelector('.todo_form input')
+
+    function todoSubmit(e){
+      e.preventDefault();
+      let value = elInput.value;
+      elInput.value = "";
+      elUl.innerHTML += `
+                              <li>${value}</li>
+                              `
+    };
+    elForm.addEventListener("submit",todoSubmit);  
+    
+    
+  </script>
+</body>
+</html>
