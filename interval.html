@@ -7,7 +7,7 @@
 </head>
 <body>
   <h2 class="clock" id="greeting">00:00</h2>
-  <script>
+  <!-- <script>
     const clock = document.querySelector(".clock");
   
     function getClock(){
@@ -20,6 +20,20 @@
     getClock();
     setInterval(getClock, 1000); // 반복적으로 코드를 실행하는 타이머를 설정
     // setTimeout(sayHello, 5000) // 한 번만 실행되는 타이머를 설정
+  </script> -->
+  <script>
+    const elH2 = document.querySelector('.clock');
+
+    setInterval(function(){
+      function getClock(){
+      const days = new Date(),
+              hours = days.getHours(),
+              minites = days.getMinutes(),
+              seconds = days.getSeconds();
+      elH2.innerText = `${hours} : ${minites} : ${seconds}`
+    };
+    getClock();
+    },1000)
   </script>
 </body>
 </html>

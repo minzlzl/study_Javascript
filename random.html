@@ -6,61 +6,87 @@
   <title>Document</title>
 </head>
 <body>
-  <div class="quote">
+  <!-- <div class="quote">
     <span></span>
     <br/>
     <span></span>
-  </div>
-  <script>
-    const span1 = document.querySelector(".quote span:nth-of-type(1)"),
-            span2 = document.querySelector(".quote span:nth-of-type(2)");
-    const quotes = [
-      {
-      quote: 'I never dreamed about success, I worked for it',
-      author: 'Estee Lauder'
+    <script>
+      const span1 = document.querySelector(".quote span:nth-of-type(1)"),
+              span2 = document.querySelector(".quote span:nth-of-type(2)");
+      const quotes = [
+        {
+        quote: 'I never dreamed about success, I worked for it',
+        author: 'Estee Lauder'
+        },
+        {
+        quote: 'Do not try to be original, just try to be good.',
+        author: 'Paul Rand'
+        },
+        {
+        quote: 'Do not be afraid to give up the good to go for the great',
+        author: 'John D. Rockefeller'
+        },
+        {
+        quote: 'If you cannot fly then run. If you cannot run, then walk. And if you cannot walk, then crawl, but whatever you do, you have to keep moving forward.',
+        author: 'Martin Luther King Jr.'
+        },
+        {
+        quote: 'Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.',
+        author: 'Thomas Edison'
+        },
+        {
+        quote: 'The fastest way to change yourself is to hang out with people who are already the way you want to be',
+        author: 'REid Hoffman'
+        },
+        {
+        quote: 'Money is like gasoline during a road trip. You do not want to run out of gas on your trip, but you are not doing a tour of gas stations',
+        author: 'Tim O Reilly'
+        },
+        {
+        quote: 'Some people dream of success, while other people get up every morning and make it happen',
+        author: 'Wayne Huizenga'
+        },
+        {
+        quote: 'The only thing worse than starting something and falling.. is not starting something',
+        author: 'SEth Godin'
+        },
+        {
+      quote: 'If you really want to do something, you will find a way. If you do not, you will find an excuse.',
+      author: 'Jim Rohn'
       },
-      {
-      quote: 'Do not try to be original, just try to be good.',
-      author: 'Paul Rand'
-      },
-      {
-      quote: 'Do not be afraid to give up the good to go for the great',
-      author: 'John D. Rockefeller'
-      },
-      {
-      quote: 'If you cannot fly then run. If you cannot run, then walk. And if you cannot walk, then crawl, but whatever you do, you have to keep moving forward.',
-      author: 'Martin Luther King Jr.'
-      },
-      {
-      quote: 'Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.',
-      author: 'Thomas Edison'
-      },
-      {
-      quote: 'The fastest way to change yourself is to hang out with people who are already the way you want to be',
-      author: 'REid Hoffman'
-      },
-      {
-      quote: 'Money is like gasoline during a road trip. You do not want to run out of gas on your trip, but you are not doing a tour of gas stations',
-      author: 'Tim O Reilly'
-      },
-      {
-      quote: 'Some people dream of success, while other people get up every morning and make it happen',
-      author: 'Wayne Huizenga'
-      },
-      {
-      quote: 'The only thing worse than starting something and falling.. is not starting something',
-      author: 'SEth Godin'
-      },
-      {
-    quote: 'If you really want to do something, you will find a way. If you do not, you will find an excuse.',
-    author: 'Jim Rohn'
-    },
-    ];
-    const ramdomQ = quotes[Math.floor(Math.random() * quotes.length)];
-    // console.log(ramdomQ);
-    span1.innerText = ramdomQ.quote;
-    span2.innerText = ramdomQ.author;
+      ];
+      const ramdomQ = quotes[Math.floor(Math.random() * quotes.length)];
+      // console.log(ramdomQ);
+      span1.innerText = ramdomQ.quote;
+      span2.innerText = ramdomQ.author;
+  
+    </script>
+  </div> -->
+  <div class="random">
+    <button>랜덤출력해줘</button>
+    <p></p>
+    <p></p>
+    <script>
+      const books = [
+        {name:"도시와 그 불확실한 벽", artist:"무라카미 하루키"},
+        {name:"퓨처 셀프", artist:"벤저민 하디"},
+        {name:"도둑맞은 집중력", artist:"요한 하리"},
+        {name:"오늘도 나아가는 중입니다", artist:"조민"},
+        {name:"눈에 갇힌 외딴 산장에서", artist:"히가시노 게이고"}
+      ],
+        elP1 = document.querySelector('.random p:nth-of-type(1)'),
+        elP2 = document.querySelector('.random p:nth-of-type(2)'),
+        elBtn = document.querySelector('.random button');
+        
 
-  </script>
+        function clickBtn(){
+          const random = books[Math.floor(Math.random() * 5)];
+          console.log(random);
+          elP1.innerText = `${random.name}`;
+          elP2.innerText = `${random.artist}`;
+        };
+        elBtn.addEventListener("click",clickBtn);
+    </script>
+  </div>
 </body>
 </html>
