@@ -21,7 +21,10 @@
       let value = elInput.value;
       elInput.value = "";
       elUl.innerHTML += `
-                              <li>${value}</li>
+                              <li>
+                                <span>${value}</span>
+                                <button>x</button>
+                              </li>
                               `
     };
     elForm.addEventListener("submit",todoSubmit);  
