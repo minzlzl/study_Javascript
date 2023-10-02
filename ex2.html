@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 페이지 상단에 "할일 목록"이라는 제목을 추가하세요. -->
+  <!-- 할일을 입력할 수 있는 텍스트 입력 상자(인풋 박스)와 "추가" 버튼을 만드세요. -->
+  <!-- 텍스트 입력 상자에 할일을 입력하고 "추가" 버튼을 클릭하면 아래에 할일 목록이 추가되어야 합니다. -->
+  <!-- 할일 목록은 목록 형태(예: ul, li)로 표시되어야 합니다. -->
+  각 할일 항목 옆에 "완료" 버튼을 만들어 해당 할일을 완료 상태로 변경할 수 있도록 하세요.
+  완료된 항목은 글자 색상을 회색으로 변경하세요.
+  각 할일 항목 옆에 "삭제" 버튼을 만들어 해당 항목을 삭제할 수 있도록 하세요.
+  완료 및 삭제 버튼을 클릭할 때 해당 항목을 목록에서 제거하세요.
+  <article class="todo">
+    <h2>할일 목록</h2>
+    <input type="text">
+    <button>추가하기</button>
+    <ul class="todo_list"></ul>
+    <script>
+      const input = document.querySelector('.todo input'),
+              btn = document.querySelector('.todo button'),
+              ul = document.querySelector('.todo ul')
+
+
+      function btnClick(){
+        const inputValue = input.value;
+        ul.innerHTML += `
+                                <li>
+                                  <span>${inputValue}</span>
+                                  <button>삭제</button>
+                                </li>     
+                                `
+        const ulBtn = document.querySelectorAll('.todo ul li button'),
+                span = document.querySelectorAll('.todo ul li span')
+        ulBtn.forEach(function(v){
+          v.onclick = function(){
+            span.forEach(function(v2){
+              ul.remove();
+            })
+          }
+        })
+      };
+      btn.addEventListener("click", btnClick);
+    </script>
+  </article>
+  <style>
+    .todo{
+      width:50%;
+      margin: 20px auto;
+    }
+  </style>
+</body>
+</html>
