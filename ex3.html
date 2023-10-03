@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div{
+      width:50%;
+      margin: 40px auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="two">
+    <!-- 숫자 하나를 입력받아 그 숫자가 짝수인지 홀수인지 확인하는 JavaScript 함수를 작성하세요. -->
+    <input type="text" placeholder="숫자 입력해조" required>
+    <button>확인하기</button>
+    <script>
+      const input = document.querySelector('.two input'),
+              btn = document.querySelector('.two button'),
+              p = document.createElement('p'),
+              two = document.querySelector('.two');
+      
+      two.appendChild(p);
+  
+  
+    function btnClick(){
+      const inputValue = parseInt(input.value);
+      if(inputValue%2 == 0){
+        p.innerText = `짝수`
+      }else{
+        p.innerText = `홀수`
+      }
+    };
+    btn.addEventListener("click", btnClick);
+    </script>
+  </div>
+  
+  <div class="big">
+    <!-- 주어진 두 개의 숫자 중에서 더 큰 숫자를 찾는 JavaScript 함수를 작성하세요. -->
+    <input type="text">
+    <input type="text">
+    <button>어떤게 더 클까?</button>
+    <script>
+      const big = document.querySelector('.big'),
+              bigInput1 = document.querySelector('.big input:nth-of-type(1)'),
+              bigInput2 = document.querySelector('.big input:nth-of-type(2)'),
+              bigBtn = document.querySelector('.big button'),
+              bigP = document.createElement('p');
+      big.appendChild(bigP);
+      
+      function bigBtnClick(){
+        const bigInput1V = parseInt(bigInput1.value);
+        const bigInput2V = parseInt(bigInput2.value);
+        if(bigInput1V > bigInput2V){
+          bigP.innerText = `더 큰 숫자는 ${bigInput1V}`;
+        }else{
+          bigP.innerText = `더 큰 숫자는 ${bigInput2V}`;
+        }
+      };
+      bigBtn.addEventListener("click", bigBtnClick);
+    </script>
+  </div>
+</body>
+</html>
