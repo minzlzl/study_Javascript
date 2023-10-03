@@ -12,22 +12,39 @@
   <ul class="todo_list"></ul>
 
   <script>
-    const elForm = document.querySelector('.todo_form'),
-            elUl = document.querySelector('.todo_list'),
-            elInput = document.querySelector('.todo_form input')
+    const form = document.querySelector('.todo_form'),
+            ul = document.querySelector('.todo_list'),
+            Input = document.querySelector('.todo_form input')
+    const todos = [];
+    
+    function saveTodos(){
+      localStorage.setItem("todos", todos)
+    };
 
     function todoSubmit(e){
       e.preventDefault();
-      let value = elInput.value;
-      elInput.value = "";
-      elUl.innerHTML += `
-                              <li>
-                                <span>${value}</span>
-                                <button>x</button>
-                              </li>
-                              `
+      const value = Input.value; // value에 input의 value를 넣어줌
+      console.log(value); // 밑에서 비워줬다고해서 value가 비워지는게 아님!!!!!!!!!!!!!!!!!!!!
+      Input.value = ""; // input 값을 비워줌
+      todos.push(value);
+      
+      const li = document.createElement('li'),
+              span = document.createElement('span'),
+              btn = document.createElement('button');
+      li.appendChild(span); // li는 자식으로 span을 가지게됨
+      span.innerText = value;
+      ul.appendChild(li);
+      btn.innerText =`❌`;
+      li.appendChild(btn);
+
+      btn.onclick = function(event){
+        console.log(event.target.parentElement.innerText);
+        const del = event.target.parentElement;
+        del.remove();
+      };
+      saveTodos();
     };
-    elForm.addEventListener("submit",todoSubmit);  
+    form.addEventListener("submit",todoSubmit);  
     
     
   </script>

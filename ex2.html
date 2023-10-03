@@ -6,14 +6,14 @@
   <title>Document</title>
 </head>
 <body>
-  <!-- 페이지 상단에 "할일 목록"이라는 제목을 추가하세요. -->
-  <!-- 할일을 입력할 수 있는 텍스트 입력 상자(인풋 박스)와 "추가" 버튼을 만드세요. -->
-  <!-- 텍스트 입력 상자에 할일을 입력하고 "추가" 버튼을 클릭하면 아래에 할일 목록이 추가되어야 합니다. -->
-  <!-- 할일 목록은 목록 형태(예: ul, li)로 표시되어야 합니다. -->
+  <!-- 페이지 상단에 "할일 목록"이라는 제목을 추가하세요.
+  할일을 입력할 수 있는 텍스트 입력 상자(인풋 박스)와 "추가" 버튼을 만드세요.
+  텍스트 입력 상자에 할일을 입력하고 "추가" 버튼을 클릭하면 아래에 할일 목록이 추가되어야 합니다.
+  할일 목록은 목록 형태(예: ul, li)로 표시되어야 합니다.
   각 할일 항목 옆에 "완료" 버튼을 만들어 해당 할일을 완료 상태로 변경할 수 있도록 하세요.
   완료된 항목은 글자 색상을 회색으로 변경하세요.
   각 할일 항목 옆에 "삭제" 버튼을 만들어 해당 항목을 삭제할 수 있도록 하세요.
-  완료 및 삭제 버튼을 클릭할 때 해당 항목을 목록에서 제거하세요.
+  완료 및 삭제 버튼을 클릭할 때 해당 항목을 목록에서 제거하세요. -->
   <article class="todo">
     <h2>할일 목록</h2>
     <input type="text">
@@ -24,33 +24,99 @@
               btn = document.querySelector('.todo button'),
               ul = document.querySelector('.todo ul')
 
-
       function btnClick(){
         const inputValue = input.value;
-        ul.innerHTML += `
-                                <li>
-                                  <span>${inputValue}</span>
-                                  <button>삭제</button>
-                                </li>     
-                                `
-        const ulBtn = document.querySelectorAll('.todo ul li button'),
-                span = document.querySelectorAll('.todo ul li span')
-        ulBtn.forEach(function(v){
+        if(inputValue.trim() != ``){ // 입력값이 공백이 아닌 경우에만 추가
+          ul.innerHTML += `
+                                  <li>
+                                    <span>${inputValue}</span>
+                                    <button class="del">삭제</button>
+                                  </li>     
+                                  `
+        }
+        input.value = ``;
+
+        const delBtn = document.querySelectorAll('.del');
+        delBtn.forEach(function(v){
           v.onclick = function(){
-            span.forEach(function(v2){
-              ul.remove();
-            })
-          }
-        })
+            const listItem = v.parentElement; //클릭한 버튼의 부모 li를 찾음
+            listItem.remove();
+          };
+        });
       };
       btn.addEventListener("click", btnClick);
     </script>
   </article>
   <style>
-    .todo{
+    article{
       width:50%;
       margin: 20px auto;
     }
   </style>
+
+<!-- 페이지 상단에 "글 작성"이라는 제목을 추가하세요. -->
+<!-- 제목과 내용을 입력할 수 있는 텍스트 입력 상자(인풋 박스)를 만드세요. -->
+<!-- "작성" 버튼을 추가하세요. -->
+<!-- 제목과 내용을 입력하고 "작성" 버튼을 클릭하면 아래에 작성한 글이 추가되어야 합니다. -->
+<!-- 작성한 글은 목록 형태(예: div, p 등)로 표시되어야 합니다. -->
+<!-- 작성한 글 아래에는 "수정" 버튼과 "삭제" 버튼을 추가하세요. -->
+"수정" 버튼을 클릭하면 해당 글의 제목과 내용이 수정 가능한 입력 상자로 변경되어야 합니다.
+"수정" 버튼을 누르고 수정 후 "저장" 버튼을 클릭하면 수정된 내용이 반영되어야 합니다.
+<!-- "삭제" 버튼을 클릭하면 해당 글이 목록에서 제거되어야 합니다. -->
+  <article class="write">
+    <h2>글 작성</h2>
+    <form>
+      <input type="text" placeholder="제목입력" required>
+      <input type="text"placeholder="내용입력" required>
+      <input type="submit" value="작성">
+    </form>
+    <div class="write_list">
+    </div>
+    <script>
+      const writeInput1 = document.querySelector('.write input:nth-of-type(1)'),
+              writeInput2 = document.querySelector('.write input:nth-of-type(2)'),
+              submit = document.querySelector('.write input:nth-of-type(3)'),
+              writeList = document.querySelector('.write_list');
+
+      function submitClick(e){
+        e.preventDefault();
+        const writeInput1Value = writeInput1.value,
+                writeInput2Value = writeInput2.value;
+        if(writeInput1Value.trim() && writeInput2Value.trim() != ``){
+          writeList.innerHTML += `
+                                        <div>
+                                          <h3>${writeInput1Value}</h3>
+                                          <p>${writeInput2Value}</p>
+                                          <button class="edit">수정</button>
+                                          <button class="del2">삭제</button>
+                                        </div>
+                                        `
+          //수정버튼
+          const editBtn = document.querySelectorAll('.edit')
+                  
+                  
+          editBtn.forEach(function(edit,del){
+            edit.onclick = function(){
+              const h3 = document.querySelectorAll('.write_list div h3')[del],
+                      elP1 = document.querySelectorAll('.write_list div p')[del]
+            };
+          });
+
+           //삭제버튼
+          const delBtn2 = document.querySelectorAll('.del2');
+          delBtn2.forEach(function(v){
+            v.onclick = function(){
+              const ccccdel = v.parentElement; // .write_list > div
+              writeList.removeChild(ccccdel); // .write_list
+            }
+          })
+          
+          writeInput1.value = ``;
+          writeInput2.value = ``;
+        };
+      };
+      submit.addEventListener("click", submitClick);
+    </script>
+  </article>
 </body>
 </html>
