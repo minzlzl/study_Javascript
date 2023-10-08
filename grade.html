@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <title>Document</title>
+  <style>
+    body,ul,li,p{margin:0;padding:0;}
+    li{margin-bottom: 30px;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <ul>
+      <li>
+        <span>블라블라휘트니스 김만쥬</span>
+        <div class="star">
+          <span class="material-symbols-outlined">star</span>
+          <span class="material-symbols-outlined">star</span>
+          <span class="material-symbols-outlined">star</span>
+          <span class="material-symbols-outlined">star</span>
+          <span class="material-symbols-outlined">star</span>
+          <span class="plus">5</span>
+        </div>
+        <p>김만쥬 선생님이 짱입니다!!!!!!</p>
+      </li>
+      <li>
+        <span>블라블라휘트니스 김만쥬</span>
+        <div class="star">
+          <span class="material-symbols-outlined">star</span>
+          <span class="material-symbols-outlined">star</span>
+          <span class="material-symbols-outlined">star</span>
+          <span class="plus">3</span>
+        </div>
+        <p>최고입니당</p>
+      </li>
+      <li>
+        <span>블라블라휘트니스 김만쥬</span>
+        <div class="star">
+          <span class="material-symbols-outlined">star</span>
+          <span class="material-symbols-outlined">star</span>
+          <span class="material-symbols-outlined">star</span>
+          <span class="material-symbols-outlined">star</span>
+          <span class="plus">4</span>
+        </div>
+        <p>말해뭐해요 최고👍</p>
+      </li>
+    </ul>
+  </div>
+  <hr>
+  <div class="view">
+    <h1 class="all"></h1>
+    <div class="star">
+      <span class="material-symbols-outlined">star</span>
+      <span class="material-symbols-outlined">star</span>
+      <span class="material-symbols-outlined">star</span>
+      <span class="material-symbols-outlined">star</span>
+      <span class="material-symbols-outlined">star</span>
+      <span>5</span>
+    </div>
+    <span>3개의 수강평</span>
+    <ul>
+      <li>
+        <span>5점</span>
+        <span></span>
+      </li>
+      <li>
+        <span>4점</span>
+        <span></span>
+      </li>
+      <li>
+        <span>3점</span>
+        <span></span>
+      </li>
+      <li>
+        <span>2점</span>
+        <span></span>
+      </li>
+      <li>
+        <span>1점</span>
+        <span></span>
+      </li>
+    </ul>
+  </div>
+  <script>
+    const plus = document.querySelectorAll('.plus'),
+            all = document.querySelector('.all')
+
+    const result = (parseInt(plus[0].innerText) + parseInt(plus[1].innerText) + parseInt(plus[2].innerText)) / 3
+    all.innerText = result
+
+    console.log(  )
+    
+  </script>
+</body>
+</html>
