@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form>
+    <label>
+      1. 밖에 나가는거 좋아함? 집에 있는거 좋아함?<br/>
+      <input type="radio" name="ei" value="E">밖
+      <input type="radio" name="ei" value="I">집
+    </label>
+    <br/>
+    <label>
+      2. 망상좋아함? 현실적임?<br/>
+      <input type="radio" name="ns" value="N">망상충
+      <input type="radio" name="ns" value="S">현실충
+    </label>
+    <br/>
+    <label>
+      3. 공감잘못하니? 공감잘하니?<br/>
+      <input type="radio" name="tf" value="T">공능제
+      <input type="radio" name="tf" value="F">감성충
+    <br/>
+    </label>
+    <label>
+      4. 계획형이니? 아니니?<br/>
+      <input type="radio" name="jp" value="J">계획충
+      <input type="radio" name="jp" value="P">노계획충
+      <br/>
+    </label>
+    <input type="submit" value="제출" class="btn">
+    <p></p>
+  </form>
+
+  <script>
+    const btn = document.querySelector('.btn')
+    const p = document.querySelector('p')
+
+    btn.onclick = function(e){
+      e.preventDefault();
+      const input1 = document.querySelector('input[name="ei"]:checked').value;
+      const input2 = document.querySelector('input[name="ns"]:checked').value;
+      const input3 = document.querySelector('input[name="tf"]:checked').value;
+      const input4 = document.querySelector('input[name="jp"]:checked').value;
+
+      let total = `${input1}${input2}${input3}${input4}`
+      let text = ``;
+      console.log(total)
+      // let title = '';
+      switch(total){
+        case `ISFP` : 
+          text = `마음여리고 착한사람`
+          break;
+        case `INFP` : 
+          text = `아마도 찐따`
+          break;
+        case `ISTP` : 
+          text = `박명수MBTI였나`
+          break;
+        case `INTP` : 
+          text = `잘모름`
+          break;
+        case `ISFJ` : 
+          text = `가끔이거나옴`
+          break;
+        case `INFJ` : 
+          text = `잘모름`
+          break;
+        case `ISTJ` : 
+          text = `잘모름`
+          break;
+        case `INTJ` : 
+          text = `잘모름`
+          break;
+
+        case `ESFP` : 
+          text = `자유로운영혼`
+          break;
+        case `ENFP` : 
+          text = `존나활발`
+          break;
+        case `ESTP` : 
+          text = `잘모름`
+          break;
+        case `ENTP` : 
+          text = `하...`
+          break;
+        case `ESFJ` : 
+          text = `잘모름`
+          break;
+        case `ENFJ` : 
+          text = `잘모름`
+          break;
+        case `ESTJ` : 
+          text = `잘모름`
+          break;
+        case `ENTJ` : 
+          text = `잘모름`
+          break;
+      }
+      p.innerHTML = `내 mbti는 ${total}이고 ${text}`
+    }
+  </script>
+</body>
+</html>
