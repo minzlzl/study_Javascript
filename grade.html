@@ -7,13 +7,17 @@
   <title>Document</title>
   <style>
     body,ul,li,p{margin:0;padding:0;}
-    li{margin-bottom: 30px;}
+    .wrap{width:100%; margin: 0px auto;}
+    .list1{padding:20px; border-bottom: 1px solid #ddd;}
+    .star{display: inline-block;}
+    .list1>span{font-weight: bold;}
+    .bar span:nth-of-type(2){width:50%; height:20px; background-color: #eee; display: inline-block; border-radius: 10px;}
   </style>
 </head>
 <body>
   <div class="wrap">
     <ul>
-      <li>
+      <li class="list1">
         <span>블라블라휘트니스 김만쥬</span>
         <div class="star">
           <span class="material-symbols-outlined">star</span>
@@ -25,7 +29,7 @@
         </div>
         <p>김만쥬 선생님이 짱입니다!!!!!!</p>
       </li>
-      <li>
+      <li class="list1">
         <span>블라블라휘트니스 김만쥬</span>
         <div class="star">
           <span class="material-symbols-outlined">star</span>
@@ -35,7 +39,7 @@
         </div>
         <p>최고입니당</p>
       </li>
-      <li>
+      <li class="list1">
         <span>블라블라휘트니스 김만쥬</span>
         <div class="star">
           <span class="material-symbols-outlined">star</span>
@@ -46,10 +50,19 @@
         </div>
         <p>말해뭐해요 최고👍</p>
       </li>
+      <li class="list1">
+        <span>블라블라휘트니스 김만쥬</span>
+        <div class="star">
+          <span class="material-symbols-outlined">star</span>
+          <span class="material-symbols-outlined">star</span>
+          <span class="material-symbols-outlined">star</span>
+          <span class="plus">3</span>
+        </div>
+        <p>최고입니당</p>
+      </li>
     </ul>
   </div>
-  <hr>
-  <div class="view">
+  <div class="view"  style="text-align: center;">
     <h1 class="all"></h1>
     <div class="star">
       <span class="material-symbols-outlined">star</span>
@@ -57,27 +70,26 @@
       <span class="material-symbols-outlined">star</span>
       <span class="material-symbols-outlined">star</span>
       <span class="material-symbols-outlined">star</span>
-      <span>5</span>
     </div>
-    <span>3개의 수강평</span>
+    <span class="list_all" style="display: block; margin-bottom: 10px;"></span>
     <ul>
-      <li>
+      <li class="bar">
         <span>5점</span>
         <span></span>
       </li>
-      <li>
+      <li class="bar">
         <span>4점</span>
         <span></span>
       </li>
-      <li>
+      <li class="bar">
         <span>3점</span>
         <span></span>
       </li>
-      <li>
+      <li class="bar">
         <span>2점</span>
         <span></span>
       </li>
-      <li>
+      <li class="bar">
         <span>1점</span>
         <span></span>
       </li>
@@ -85,12 +97,20 @@
   </div>
   <script>
     const plus = document.querySelectorAll('.plus'),
-            all = document.querySelector('.all')
-
-    const result = (parseInt(plus[0].innerText) + parseInt(plus[1].innerText) + parseInt(plus[2].innerText)) / 3
+            all = document.querySelector('.all'),
+            listAll = document.querySelector('.list_all'),
+            list1 = document.querySelectorAll('.list1')
+    const list1Count = list1.length;
+    
+    let total = 0;
+    plus.forEach(function(v,k){
+      total += parseInt(v.innerText);
+    })
+    const result = (total / list1Count).toFixed(1);
     all.innerText = result
 
-    console.log(  )
+    
+    listAll.innerText = `${list1Count}개의 수강평`
     
   </script>
 </body>
