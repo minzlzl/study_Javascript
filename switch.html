@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const direction = 'west';
+    let directionKor;
+    // console.log(direction, directionKor);
+
+    switch (direction) {
+      case 'north':
+        directionKor = '북';
+        break;
+      case 'south':
+        directionKor = '남';
+        break;
+      case 'east':
+        directionKor = '동';
+        break;
+      case 'west':
+        directionKor = '서';
+        break;
+      default:
+        directionKor = '무효';
+    }
+    console.log(directionKor);
+    
+  </script>
+
+  <script>
+    const input = prompt("값을 입력하세요");
+    let personInput ;
+
+    switch(parseInt(input)){
+      case 1 :
+        personInput = "일요일";
+        break;
+      case 2 :
+        personInput = "월요일";
+        break;
+      case 3 :
+        personInput = "화요일";
+        break;
+      case 4 :
+        personInput = "수요일";
+        break;
+      default : 
+      personInput = "잘못입력하심"
+    }
+    console.log(personInput)
+
+  </script>
+</body>
+</html>

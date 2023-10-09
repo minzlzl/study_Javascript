@@ -6,7 +6,7 @@
   <title>Document</title>
 </head>
 <body>
-  <script>
+  <!-- <script>
     const player = {
       name:"nico",
       point:10,
@@ -21,6 +21,20 @@
     
     player.age = 22;
     console.log(player);
+  </script> -->
+
+  <script>
+    const person = {
+      name:"김만쥬",
+      age:29,
+      married:false
+    };
+    console.log('age' in person); // age가 있는가 -> true
+    console.log('job' in person); // job이 있는가 -> false
+
+    //프로퍼티 추가하는 법
+    person.job = "student";
+    console.log(person);
   </script>
 </body>
 </html>
