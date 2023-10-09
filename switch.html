@@ -54,109 +54,57 @@
 
   </script> -->
 
-  <!-- 스위치문 과제 - MBTI 출력하기
 
-  1. 4가지 질문을 준비 (답안 2개) 
-   -> 나가 노는걸 좋아함 = E / 집순이임? = I 이런식
-  2. 결과 보기 버튼 클릭시 결과 취합
-   - > 1번 내용에 사용자가 체크 한 결과만 취합 ex. INFJ 
-  2. 체크한 내용을 기반으로 switch 문으로 결과값 출력
-  3. 결과값은 내 MBTI / MBTI 설명 -> 2개 변수로 만들어서 출력
-  
-switch(a){
-  case 'a' : mbti='ISFJ'; text='존나 현실적인 야비한 새끼';
-  case 'b' : mbti='ESFJ'; text='오지라퍼';
-  }
-  
-  innerText=`내 MBTI : ${mbti}`;
-  innerText=`설명 : ${text}`; -->
+  <!-- 2개의 값을 입력받고
++ - * / < 버튼 누르면
+2개 값이 더해지거나 뺴지거나 곱해지거나 나눠지는 -->
+
+  <input type="text" style="width:30px">
+  <div class="btn">
+    <button>+</button>
+    <button>-</button>
+    <button>*</button>
+    <button>/</button>
+  </div>
+  <input type="text" style="width:30px">
   <p></p>
-  <span></span>
   <script>
-    const p = document.querySelector('p')
-    const span = document.querySelector('span')
-
-    let ei = prompt("밖에 나가는거 좋아함? 집에 있는거 좋아함? ex)밖, 집")
-    if(ei === `밖`){
-      ei = `E`
-    }else if(ei ===`집`){
-      ei = `I`
-    }
-    let ns = prompt("망상좋아함? 현실적임? ex)망상충, 현실충")
-    if(ns === `망상충`){
-      ns = `N`
-    }else if(ns ===`현실충`){
-      ns = `S`
-    }
-    let tf = prompt("공감잘못하니? 공감잘하니? ex)공능제, 감성충")
-    if(tf === `공능제`){
-      tf = `T`
-    }else if(tf ===`감성충`){
-      tf = `F`
-    }
-    let jp = prompt("계획형이니? 아니니? ex)계획충, 노계획충")
-    if(jp === `계획충`){
-      jp = `J`
-    }else if(jp ===`노계획충`){
-      jp = `P`
-    }
-    console.log(ei,ns,tf,jp)
-    let total = `${ei}${ns}${tf}${jp}`
-    console.log(total)
+    const input1 = document.querySelector('input:nth-of-type(1)'),
+            input2 = document.querySelector('input:nth-of-type(2)'),
+            btn = document.querySelectorAll('.btn button'),
+            p = document.querySelector('p')
 
     
-
-    switch(total){
-      case `ISFP` : 
-        p.innerText = `내 mbti는 ${total}임`
-        break;
-      case `ISFJ` : 
-        p.innerText = `내 mbti는 ${total}임`
-        break;
-      case `ISTP` : 
-        p.innerText = `내 mbti는 ${total}임`
-        break;
-      case `ISTJ` : 
-        p.innerText = `내 mbti는 ${total}임`
-        break;
-      case `INTP` : 
-        p.innerText = `내 mbti는 ${total}임`
-        break;
-      case `INTJ` : 
-        p.innerText = `내 mbti는 ${total}임`
-        break;
-      case `INFJ` : 
-        p.innerText = `내 mbti는 ${total}임`
-        break;
-      case `INFP` : 
-        p.innerText = `내 mbti는 ${total}임`
-        break;
-      
-      case `ESFP` : 
-        p.innerText = `내 mbti는 ${total}임`
-        break;
-      case `ESFJ` : 
-        p.innerText = `내 mbti는 ${total}임`
-        break;
-      case `ESTP` : 
-        p.innerText = `내 mbti는 ${total}임`
-        break;
-      case `ESTJ` : 
-        p.innerText = `내 mbti는 ${total}임`
-        break;
-      case `ENTP` : 
-        p.innerText = `내 mbti는 ${total}임`
-        break;
-      case `ENTJ` : 
-        p.innerText = `내 mbti는 ${total}임`
-        break;
-      case `ENFJ` : 
-        p.innerText = `내 mbti는 ${total}임`
-        break;
-      case `ENFP` : 
-        p.innerText = `내 mbti는 ${total}임`
-        break;
-    }
+    let total = 0;
+    btn.forEach(function(v,k){
+      v.onclick = function(){
+        const input1Value = parseInt(input1.value);
+        const input2Value = parseInt(input2.value);
+        switch(v.innerText){
+          case `+` : 
+            total = input1Value + input2Value;
+            input1.value = ``;
+            input2.value = ``;
+            break;
+          case `-` : 
+            total = input1Value - input2Value;
+            input1.value = ``;
+            input2.value = ``;
+            break;
+          case `*` : 
+            total = input1Value * input2Value;
+            input1.value = ``;
+            input2.value = ``;
+            break;
+          case `/` : 
+            total = input1Value / input2Value;
+            input1.value = ``;
+            input2.value = ``;
+            break;
+        }
+        p.innerText = total;
+      }
+    })
   </script>
 </body>
 </html>
