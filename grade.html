@@ -12,6 +12,7 @@
     .star{display: inline-block;}
     .list1>span{font-weight: bold;}
     .bar span:nth-of-type(2){width:50%; height:20px; background-color: #eee; display: inline-block; border-radius: 10px;}
+    .active{display: none;}
   </style>
 </head>
 <body>
@@ -64,7 +65,7 @@
   </div>
   <div class="view"  style="text-align: center;">
     <h1 class="all"></h1>
-    <div class="star">
+    <div class="star1">
       <span class="material-symbols-outlined">star</span>
       <span class="material-symbols-outlined">star</span>
       <span class="material-symbols-outlined">star</span>
@@ -99,19 +100,47 @@
     const plus = document.querySelectorAll('.plus'),
             all = document.querySelector('.all'),
             listAll = document.querySelector('.list_all'),
-            list1 = document.querySelectorAll('.list1')
+            list1 = document.querySelectorAll('.list1'),
+            star1 = document.querySelectorAll('.star1 span'),
+            bar = document.querySelectorAll('.bar span:nth-of-type(2)')
+
+
     const list1Count = list1.length;
     
     let total = 0;
+    let star_tota = 0;
     plus.forEach(function(v,k){
       total += parseInt(v.innerText);
     })
     const result = (total / list1Count).toFixed(1);
-    all.innerText = result
+    all.innerText = result;
+
+    star1.forEach(function(){
+      star1_total = parseInt(result); // 3
+      switch(star1_total){
+        case 1 : 
+          star1[1].classList.add('active');
+          star1[2].classList.add('active');
+          star1[3].classList.add('active');
+          star1[4].classList.add('active');
+          break;
+        case 2 : 
+          star1[2].classList.add('active');
+          star1[3].classList.add('active');
+          star1[4].classList.add('active');
+          break;
+        case 3 : 
+          star1[3].classList.add('active');
+          star1[4].classList.add('active');
+          break;
+        case 4 : 
+          star1[4].classList.add('active');
+          break;
+      }
+    })
 
     
     listAll.innerText = `${list1Count}개의 수강평`
-    
   </script>
 </body>
 </html>
